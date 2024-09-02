@@ -11,7 +11,7 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 6vw; /* Usa viewport width per dimensionare il titolo in base alla larghezza dello schermo */
+    font-size: 4vw; /* Usa viewport width per dimensionare il titolo in base alla larghezza dello schermo */
     margin-top: 50px;
 }
 
@@ -70,36 +70,7 @@ h1 {
     text-align: center; /* Centra il testo orizzontalmente */
 }
 
-/* Stili specifici per dispositivi con larghezza massima di 600px (smartphone) */
-@media screen and (max-width: 600px) {
-    h1 {
-        font-size: 10vw; /* Font size aumenta un po' su dispositivi più piccoli */
-    }
 
-    .main-content {
-        margin-top: 30px;
-    }
-
-    #menu-icon {
-        font-size: 25px;
-        top: 15px;
-        left: 15px;
-    }
-
-    .side-menu {
-        width: 200px;
-        padding-top: 50px;
-    }
-
-    .side-menu a {
-        font-size: 18px;
-        padding: 8px 12px;
-    }
-
-    .close-btn {
-        font-size: 30px;
-    }
-}
 
 /*______*/
 /* Stile per i fieldset */
