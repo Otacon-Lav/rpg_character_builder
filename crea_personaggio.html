@@ -8,10 +8,25 @@
     <link rel="stylesheet" href="style.css"> <!-- Riutilizza il file CSS esistente -->
 </head>
 <body>
+    <!-- Icona del menu -->
+    <div id="menu-icon" onclick="toggleMenu()">
+        &#9776;
+    </div>
+
+    <!-- Menu laterale -->
+    <div id="side-menu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+        <a href="#">Home</a>
+        <a href="crea_personaggio.html">Crea Personaggio</a>
+        <a href="visualizza_personaggio.html">Visualizza Personaggio</a>
+    </div>
+
     <!-- Contenuto principale della pagina "Crea Personaggio" -->
     <div class="main-content">
         <h1>Crea Personaggio</h1>
         <!-- Aggiungi qui eventuali form o contenuti per la creazione del personaggio -->
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

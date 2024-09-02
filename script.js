@@ -1,8 +1,8 @@
 function toggleMenu() {
-    var sideMenu = document.getElementById("side-menu");
-    if (sideMenu.style.width === "250px") {
-        sideMenu.style.width = "0";
+    var menu = document.getElementById("side-menu");
+    if (menu.style.width === "250px") {
+        menu.style.width = "0";
     } else {
-        sideMenu.style.width = "250px";
+        menu.style.width = "250px";
     }
 }
