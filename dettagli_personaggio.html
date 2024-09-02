@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Personaggio</title>
+    <link rel="stylesheet" href="style.css"> <!-- Riutilizza il file CSS esistente -->
+</head>
+<body>
+    <!-- Icona del menu -->
+    <div id="menu-icon" onclick="toggleMenu()">
+        &#9776;
+    </div>
+
+    <!-- Menu laterale -->
+    <div id="side-menu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="crea_personaggio.html">Crea Personaggio</a>
+        <a href="visualizza_personaggio.html">Visualizza Personaggio</a>
+    </div>
+
+    <!-- Contenuto principale della pagina "Dettagli Personaggio" -->
+    <div class="main-content">
+        <h1>Dettagli Personaggio</h1>
+        <form action="#" method="post">
+            <!-- Sezione informazioni personali -->
+            <fieldset>
+                <legend>INFORMAZIONI PERSONALI</legend>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br><br>
+
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" required><br><br>
+
+                <label for="genere">Genere:</label>
+                <input type="text" id="genere" name="genere" required><br><br>
+
+                <label for="eta">Età:</label>
+                <input type="number" id="eta" name="eta" required><br><br>
+
+                <label for="razza">Razza:</label>
+                <input type="text" id="razza" name="razza" required><br><br>
+
+                <label for="occupazione">Occupazione:</label>
+                <input type="text" id="occupazione" name="occupazione" required><br><br>
+
+                <label for="classe">Classe:</label>
+                <input type="text" id="classe" name="classe" required><br><br>
+
+                <label for="specializzazione">Specializzazione:</label>
+                <input type="text" id="specializzazione" name="specializzazione" required><br><br>
+            </fieldset>
+
+            <!-- Sezione biografia e descrizioni -->
+            <fieldset>
+                <legend>DESCRIZIONI E STORIA</legend>
+                <label for="biografia">Biografia:</label><br>
+                <textarea id="biografia" name="biografia" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="descrizione_fisica">Descrizione fisica:</label><br>
+                <textarea id="descrizione_fisica" name="descrizione_fisica" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="descrizione_personalita">Descrizione della personalità:</label><br>
+                <textarea id="descrizione_personalita" name="descrizione_personalita" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="headcanons">Headcanons:</label><br>
+                <textarea id="headcanons" name="headcanons" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="update_storia">Update storia:</label><br>
+                <textarea id="update_storia" name="update_storia" rows="4" cols="50" required></textarea><br><br>
+            </fieldset>
+
+            <input type="submit" value="Salva Personaggio">
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
