@@ -9,6 +9,17 @@ body {
     align-items: center; /* Centra verticalmente */
 }
 
+h1 {
+    text-align: center;
+    font-size: 6vw; /* Usa viewport width per dimensionare il titolo in base alla larghezza dello schermo */
+    margin-top: 50px;
+}
+
+.main-content {
+    text-align: center;
+    margin-top: 50px;
+}
+
 /* Stile per l'icona del menu */
 #menu-icon {
     font-size: 30px;
@@ -42,6 +53,9 @@ body {
     transition: 0.3s;
 }
 
+.side-menu a:hover {
+    background-color: #575757;
+}
 /* Stile per il pulsante di chiusura */
 .side-menu .close-btn {
     position: absolute;
@@ -54,4 +68,35 @@ body {
 /* Stile per il contenuto principale */
 .main-content {
     text-align: center; /* Centra il testo orizzontalmente */
+}
+
+/* Stili specifici per dispositivi con larghezza massima di 600px (smartphone) */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 10vw; /* Font size aumenta un po' su dispositivi più piccoli */
+    }
+
+    .main-content {
+        margin-top: 30px;
+    }
+
+    #menu-icon {
+        font-size: 25px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .side-menu {
+        width: 200px;
+        padding-top: 50px;
+    }
+
+    .side-menu a {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+
+    .close-btn {
+        font-size: 30px;
+    }
 }
