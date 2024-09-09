@@ -183,10 +183,8 @@ body {
 
 /* Stile per la sezione di caricamento dell'avatar */
 .avatar-upload {
-    position: absolute;
-    top: 20px;
-    left: 20px; /* Sposta l'avatar a sinistra */
     text-align: center;
+    margin-bottom: 30px; /* Spazio aggiuntivo sotto l'avatar */
 }
 
 .avatar-upload label {
@@ -201,8 +199,8 @@ body {
 
 /* Contenitore per l'anteprima dell'avatar */
 .avatar-preview {
-    width: 45px;  /* Imposta la larghezza massima */
-    height: 45px; /* Imposta l'altezza massima */
+    width: 55px;  /* Imposta la larghezza massima */
+    height: 55px; /* Imposta l'altezza massima */
     border: 2px solid #ddd;
     border-radius: 50%;
     overflow: hidden;
@@ -210,6 +208,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto; /* Centra l'avatar */
 }
 
 /* Stile per l'immagine dell'avatar */
