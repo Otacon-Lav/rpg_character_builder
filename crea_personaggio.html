@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crea Personaggio</title>
-    <link rel="stylesheet" href="style.css"> <!-- Riutilizza il file CSS esistente -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Icona del menu -->
+    <div id="menu-icon" onclick="toggleMenu()">
+        &#9776; <!-- Codice HTML per l'icona delle tre linee -->
+    </div>
+
+    <!-- Menu laterale -->
+    <div id="side-menu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="crea_personaggio.html">Crea Personaggio</a>
+        <a href="visualizza_personaggio.html">Visualizza Personaggio</a>
+    </div>
+
     <div class="main-content">
         <h1>Crea Personaggio</h1>
 
@@ -21,7 +34,7 @@
         </div>
 
         <!-- Modulo per creare il personaggio -->
-        <form action="submit_personaggio.html" method="POST">
+        <form id="character-form">
             <fieldset>
                 <legend>Informazioni Personali</legend>
 
@@ -71,6 +84,15 @@
     </div>
 
     <script>
+        function toggleMenu() {
+            var menu = document.getElementById("side-menu");
+            if (menu.style.width === "250px") {
+                menu.style.width = "0";
+            } else {
+                menu.style.width = "250px";
+            }
+        }
+
         function loadAvatar(event) {
             var avatarImage = document.getElementById('avatar-image');
             var file = event.target.files[0];
@@ -84,6 +106,38 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        // Funzione per salvare il personaggio in LocalStorage
+        document.getElementById('character-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previene l'invio del form
+
+            // Crea un oggetto con i dati del form
+            const character = {
+                nome: document.getElementById('nome').value,
+                cognome: document.getElementById('cognome').value,
+                genere: document.getElementById('genere').value,
+                eta: document.getElementById('eta').value,
+                razza: document.getElementById('razza').value,
+                occupazione: document.getElementById('occupazione').value,
+                classe: document.getElementById('classe').value,
+                specializzazione: document.getElementById('specializzazione').value,
+                descrizioneFisica: document.getElementById('descrizione-fisica').value,
+                descrizionePersonalita: document.getElementById('descrizione-personalita').value,
+                headcanons: document.getElementById('headcanons').value,
+                updateStoria: document.getElementById('update-storia').value,
+                avatar: document.getElementById('avatar-image').src // Salva l'avatar come URL data
+            };
+
+            // Recupera i personaggi esistenti dal LocalStorage
+            let characters = JSON.parse(localStorage.getItem('characters')) || [];
+            characters.push(character); // Aggiunge il nuovo personaggio all'array
+
+            // Salva l'array aggiornato nel LocalStorage
+            localStorage.setItem('characters', JSON.stringify(characters));
+
+            // Reindirizza l'utente alla pagina di visualizzazione dei personaggi
+            window.location.href = 'visualizza_personaggio.html';
+        });
     </script>
 </body>
 </html>

@@ -199,8 +199,8 @@ body {
 
 /* Contenitore per l'anteprima dell'avatar */
 .avatar-preview {
-    width: 55px;  /* Imposta la larghezza massima */
-    height: 55px; /* Imposta l'altezza massima */
+    width: 45px;  /* Imposta la larghezza massima */
+    height: 45px; /* Imposta l'altezza massima */
     border: 2px solid #ddd;
     border-radius: 50%;
     overflow: hidden;
@@ -216,4 +216,71 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Garantisce che l'immagine si adatti senza deformarsi */
+}
+
+/* Stile per la lista dei personaggi */
+#character-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Dispone i personaggi su più righe se necessario */
+}
+
+
+#character-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 150px; /* Dimensione fissa per ogni card del personaggio */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#character-list li:hover {
+    transform: scale(1.05);
+}
+
+#character-list img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover; /* Mantiene proporzioni corrette */
+    margin-bottom: 10px;
+}
+
+/* Stile per la sezione di anteprima */
+#character-preview {
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 100%; /* Assicura che la sezione non superi la larghezza dello schermo */
+    box-sizing: border-box; /* Include padding e bordi nella larghezza totale */
+    overflow-wrap: break-word; /* Fa andare a capo il testo lungo */
+}
+
+#character-preview h2 {
+    text-align: center;
+}
+
+#character-preview img {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+#character-preview p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    overflow-wrap: break-word; /* Fa andare a capo il testo lungo */
+    word-wrap: break-word; /* Compatibilità con browser più vecchi */
 }

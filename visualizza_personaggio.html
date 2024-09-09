@@ -5,15 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizza Personaggio</title>
-    <link rel="stylesheet" href="style.css"> <!-- Riutilizza il file CSS esistente -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Icona del menu -->
     <div id="menu-icon" onclick="toggleMenu()">
         &#9776;
     </div>
 
-    <!-- Menu laterale -->
     <div id="side-menu" class="side-menu">
         <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
         <a href="index.html">Home</a>
@@ -21,12 +19,85 @@
         <a href="visualizza_personaggio.html">Visualizza Personaggio</a>
     </div>
 
-    <!-- Contenuto principale della pagina "Visualizza Personaggio" -->
     <div class="main-content">
-        <h1>Visualizza Personaggio</h1>
-        <!-- Aggiungi qui il contenuto per visualizzare il personaggio -->
+        <h1>Lista dei Personaggi</h1>
+
+        <ul id="character-list">
+            <!-- Qui verranno visualizzati i personaggi salvati -->
+        </ul>
+
+        <div id="character-preview" style="display: none;">
+            <button onclick="hideCharacterPreview()">Chiudi Anteprima</button>
+            <h2>Anteprima Personaggio</h2>
+            <img id="preview-avatar" src="#" alt="Avatar del personaggio" style="width: 150px; height: 150px; display: block;">
+            <p><strong>Nome:</strong> <span id="preview-nome"></span></p>
+            <p><strong>Cognome:</strong> <span id="preview-cognome"></span></p>
+            <p><strong>Genere:</strong> <span id="preview-genere"></span></p>
+            <p><strong>Età:</strong> <span id="preview-eta"></span></p>
+            <p><strong>Razza:</strong> <span id="preview-razza"></span></p>
+            <p><strong>Occupazione:</strong> <span id="preview-occupazione"></span></p>
+            <p><strong>Classe:</strong> <span id="preview-classe"></span></p>
+            <p><strong>Specializzazione:</strong> <span id="preview-specializzazione"></span></p>
+            <h3>Biografia</h3>
+            <p><strong>Descrizione fisica:</strong> <span id="preview-descrizione-fisica"></span></p>
+            <p><strong>Descrizione della personalità:</strong> <span id="preview-descrizione-personalita"></span></p>
+            <p><strong>Headcanons:</strong> <span id="preview-headcanons"></span></p>
+            <p><strong>Update storia:</strong> <span id="preview-update-storia"></span></p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="character_script.js"></script>
+    <script>
+        function hideCharacterPreview() {
+            document.getElementById('character-preview').style.display = 'none';
+        }
+
+        function loadCharacterList() {
+            const characterList = document.getElementById('character-list');
+            const characters = JSON.parse(localStorage.getItem('characters')) || [];
+
+            characterList.innerHTML = '';
+
+            if (!characters.length) {
+                characterList.innerHTML = '<p>Nessun personaggio salvato.</p>';
+                return;
+            }
+
+            characters.forEach((character, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <img src="${character.avatar}" alt="Avatar di ${character.nome} ${character.cognome}" style="width: 45px; height: 45px;">
+                    <span>${character.nome} ${character.cognome}</span>
+                `;
+                listItem.style.cursor = 'pointer';
+
+                listItem.addEventListener('click', function() {
+                    showCharacterPreview(character);
+                });
+
+                characterList.appendChild(listItem);
+            });
+        }
+
+        function showCharacterPreview(character) {
+            document.getElementById('preview-avatar').src = character.avatar;
+            document.getElementById('preview-nome').textContent = character.nome;
+            document.getElementById('preview-cognome').textContent = character.cognome;
+            document.getElementById('preview-genere').textContent = character.genere;
+            document.getElementById('preview-eta').textContent = character.eta;
+            document.getElementById('preview-razza').textContent = character.razza;
+            document.getElementById('preview-occupazione').textContent = character.occupazione;
+            document.getElementById('preview-classe').textContent = character.classe;
+            document.getElementById('preview-specializzazione').textContent = character.specializzazione;
+            document.getElementById('preview-descrizione-fisica').textContent = character.descrizioneFisica;
+            document.getElementById('preview-descrizione-personalita').textContent = character.descrizionePersonalita;
+            document.getElementById('preview-headcanons').textContent = character.headcanons;
+            document.getElementById('preview-update-storia').textContent = character.updateStoria;
+
+            document.getElementById('character-preview').style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCharacterList);
+    </script>
 </body>
 </html>
