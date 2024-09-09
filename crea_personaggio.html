@@ -8,27 +8,82 @@
     <link rel="stylesheet" href="style.css"> <!-- Riutilizza il file CSS esistente -->
 </head>
 <body>
-    <!-- Icona del menu -->
-    <div id="menu-icon" onclick="toggleMenu()">
-        &#9776;
-    </div>
-
-    <!-- Menu laterale -->
-    <div id="side-menu" class="side-menu">
-        <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="crea_personaggio.html">Crea Personaggio</a>
-        <a href="visualizza_personaggio.html">Visualizza Personaggio</a>
-    </div>
-
-    <!-- Contenuto principale della pagina "Crea Personaggio" -->
     <div class="main-content">
         <h1>Crea Personaggio</h1>
-        <!-- Aggiungi il link alla pagina di dettagli del personaggio -->
-        <p><a href="dettagli_personaggio.html" class="button">Compila Dettagli Personaggio</a></p>
-        <!-- Altri contenuti per la creazione del personaggio -->
+
+        <!-- Sezione per il caricamento della foto -->
+        <div class="avatar-upload">
+            <label for="avatar-input">Carica Avatar:</label>
+            <input type="file" id="avatar-input" accept="image/*" onchange="loadAvatar(event)">
+            <div class="avatar-preview">
+                <img id="avatar-image" src="#" alt="Avatar" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Modulo per creare il personaggio -->
+        <form action="submit_personaggio.html" method="POST">
+            <fieldset>
+                <legend>Informazioni Personali</legend>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" required>
+
+                <label for="genere">Genere:</label>
+                <input type="text" id="genere" name="genere" required>
+
+                <label for="eta">Età:</label>
+                <input type="number" id="eta" name="eta" required>
+
+                <label for="razza">Razza:</label>
+                <input type="text" id="razza" name="razza" required>
+
+                <label for="occupazione">Occupazione:</label>
+                <input type="text" id="occupazione" name="occupazione" required>
+
+                <label for="classe">Classe:</label>
+                <input type="text" id="classe" name="classe" required>
+
+                <label for="specializzazione">Specializzazione:</label>
+                <input type="text" id="specializzazione" name="specializzazione" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Biografia</legend>
+
+                <label for="descrizione-fisica">Descrizione fisica:</label>
+                <textarea id="descrizione-fisica" name="descrizione-fisica" rows="4" required></textarea>
+
+                <label for="descrizione-personalita">Descrizione della personalità:</label>
+                <textarea id="descrizione-personalita" name="descrizione-personalita" rows="4" required></textarea>
+
+                <label for="headcanons">Headcanons:</label>
+                <textarea id="headcanons" name="headcanons" rows="4" required></textarea>
+
+                <label for="update-storia">Update storia:</label>
+                <textarea id="update-storia" name="update-storia" rows="4" required></textarea>
+            </fieldset>
+
+            <input type="submit" value="Crea Personaggio">
+        </form>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function loadAvatar(event) {
+            var avatarImage = document.getElementById('avatar-image');
+            var file = event.target.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarImage.src = e.target.result;
+                    avatarImage.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </body>
 </html>

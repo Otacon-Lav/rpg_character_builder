@@ -95,7 +95,7 @@ label {
     font-weight: bold;
 }
 
-/* Stile per gli input e textarea */
+/* Stile per gli input e text area */
 input[type="text"], input[type="number"], textarea {
     width: calc(100% - 16px); /* Considera il padding */
     padding: 12px;
@@ -105,7 +105,7 @@ input[type="text"], input[type="number"], textarea {
     font-size: 1em; /* Usa dimensioni di font relative */
 }
 
-/* Stile per il pulsante di invio */
+/* Stile per pulsante di invio */
 input[type="submit"] {
     background-color: #3791b8;
     color: white;
@@ -179,4 +179,42 @@ body {
     background-color: #fff; /* Sfondo bianco per il modulo */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunto un'ombra leggera per un effetto di sollevamento */
+}
+
+/* Stile per la sezione di caricamento dell'avatar */
+.avatar-upload {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Sposta l'avatar a sinistra */
+    text-align: center;
+}
+
+.avatar-upload label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.avatar-upload input[type="file"] {
+    margin-bottom: 10px;
+}
+
+/* Contenitore per l'anteprima dell'avatar */
+.avatar-preview {
+    width: 45px;  /* Imposta la larghezza massima */
+    height: 45px; /* Imposta l'altezza massima */
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Stile per l'immagine dell'avatar */
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garantisce che l'immagine si adatti senza deformarsi */
 }
